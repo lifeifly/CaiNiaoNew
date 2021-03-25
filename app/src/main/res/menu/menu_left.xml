@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    -
+    <group android:id="@+id/group_1">
+
+        <item
+            android:icon="@drawable/ic_apps_white_24dp"
+            android:title="@string/app_and_game" />
+
+    </group>
+
+    <!--<group android:id="@+id/group_2">-->
+
+
+    <!--<item-->
+
+
+    <!--android:icon="@drawable/ic_movie_white_24dp"-->
+
+
+    <!--android:title="@string/movie" />-->
+
+
+    <!--<item-->
+
+
+    <!--android:icon="@drawable/ic_library_music_white_24dp"-->
+
+
+    <!--android:title="@string/music" />-->
+
+
+    <!--<item-->
+
+
+    <!--android:icon="@drawable/ic_library_books_white_24dp"-->
+
+
+    <!--android:title="@string/book" />-->
+
+
+    <!--<item-->
+
+
+    <!--android:icon="@drawable/ic_fiber_new_white_24dp"-->
+
+
+    <!--android:title="@string/newsstand" />-->
+
+
+    <!--</group>-->
+
+
+    -
+    <group android:id="@+id/group_3">
+
+        <item
+            android:id="@+id/nav_download"
+            android:icon="@drawable/ic_file_download_white_24dp"
+            android:title="@string/download" />
+
+        <item
+            android:icon="@drawable/ic_update_white_24dp"
+            android:title="@string/update" />
+
+        <item
+            android:icon="@drawable/ic_message_white_24dp"
+            android:title="@string/message" />
+
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:title="@string/settings" />
+
+    </group>
+
+    <item android:title="@string/help_response" />
+
+    <item android:title="@string/about_text" />
+</menu>
