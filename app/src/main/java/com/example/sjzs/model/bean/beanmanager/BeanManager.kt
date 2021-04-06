@@ -31,7 +31,7 @@ class BeanManager {
                     .replace("<br></br>", "\n")
 
             );
-            var videourl = ""
+            var videoData: VideoData?=null
             //除了CONTENT的其他部分
             val title: String = document.select("TITLE").first().text().replace("<![CDATA[", "")
                 .replace("]]>", "")
@@ -55,10 +55,10 @@ class BeanManager {
                         }
                         val imgNode = Img(img1, width)
                         data.setNexNode(imgNode)
-                    } else if (element.text().contains("newPlayer")) {
-                        Log.d("URL1", element.text())
-                        videourl = Utils.videoUrl(element.text())
+                    } else if (element.text().contains("[!--begin:htmlVideoCode--]")) {
 
+                        videoData = Utils.videoUrl(element.text())
+                        Log.d("URL1", videoData.id)
                     } else {
                         Log.d("URL14", "strong>" + img.text())
                         data.setNexNode(HeadText(img.text()))
@@ -76,7 +76,7 @@ class BeanManager {
 
                 }
             }
-            return ArticleBean(title, keyword, source, time, des, videourl, editor, data)
+            return ArticleBean(title, keyword, source, time, des, videoData, editor, data)
         }
 
         /**

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/video_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <TextureView
+        android:id="@+id/texture_View"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/navigation_bar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/backgroudColor"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="5dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/texture_View"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintStart_toStartOf="@+id/texture_View"
+        app:layout_constraintTop_toTopOf="@+id/texture_View">
+
+        <ImageView
+            android:id="@+id/navigation_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/back_icon" />
+
+    </LinearLayout>
+    <com.example.video.ui.BufferView
+        android:id="@+id/buffer_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/texture_View"
+        app:layout_constraintEnd_toEndOf="@id/texture_View"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintStart_toStartOf="@id/texture_View"
+        app:layout_constraintTop_toTopOf="@id/texture_View"
+        app:layout_constraintWidth_percent="0.2" />
+
+    <com.example.video.ui.ProgressContatiner
+        android:id="@+id/progress_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/texture_View"
+        app:layout_constraintEnd_toEndOf="@id/texture_View"
+        app:layout_constraintStart_toStartOf="@id/texture_View"
+        app:layout_constraintTop_toTopOf="@id/texture_View">
+
+        <TextView
+            android:id="@+id/progress_current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="@color/seekbarColor"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/progress_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </com.example.video.ui.ProgressContatiner>
+
+    <com.example.video.ui.ControllerContainer
+        android:id="@+id/controll_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/backgroudColor"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/texture_View"
+        app:layout_constraintEnd_toEndOf="@+id/texture_View"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintStart_toStartOf="@+id/texture_View">
+
+
+        <com.example.video.ui.SwitchImageView
+            android:id="@+id/playOrPause"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:src="@mipmap/bofang"
+            app:switchDrawable="@mipmap/zanting" />
+
+        <TextView
+            android:id="@+id/current_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="3dp"
+            android:text="02:08:23"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:progressTint="@color/seekbarColor"
+            android:thumbTint="@color/seekbarColor" />
+
+
+        <TextView
+            android:id="@+id/total_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="3dp"
+            android:text="02:08:23"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/full_screen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:src="@mipmap/full_screen" />
+    </com.example.video.ui.ControllerContainer>
+</androidx.constraintlayout.widget.ConstraintLayout>

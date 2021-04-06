@@ -19,7 +19,6 @@ class ArticleRequestViewModel : BaseRequestVM() {
             override fun onSuccess(t: String) {
                 //转换成ArticleBean
                 val articleBean = BeanManager.getArticleBean(t)
-                Log.d("ART","ARTICELBEAN->"+articleBean.videoUrl)
                 mDataVM?.data?.value = articleBean
             }
 

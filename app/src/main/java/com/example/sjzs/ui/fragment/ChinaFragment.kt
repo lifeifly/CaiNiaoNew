@@ -3,14 +3,13 @@ package com.example.sjzs.ui.fragment
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.neihanduanzi.banner.BannerItemAdaper
 import com.example.sjzs.BR
 import com.example.sjzs.R
 import com.example.sjzs.databinding.BannerItemViewLayoutBinding
@@ -19,15 +18,16 @@ import com.example.sjzs.model.bean.CommomBanner
 import com.example.sjzs.model.bean.ListBean
 import com.example.sjzs.ui.activity.ArticleActivity
 import com.example.sjzs.ui.activity.PhotoActivity
+import com.example.sjzs.ui.recyclerview.adapter.Adapter
 import com.example.sjzs.ui.recyclerview.RvDivider
-import com.example.sjzs.ui.adapter.SocietyRvAdapter
 import com.example.sjzs.ui.base.AbsBaseFragment
 import com.example.sjzs.ui.click.IItemClick
 import com.example.sjzs.viewmodel.ChinaDataViewModel
 import com.example.sjzs.viewmodel.ChinaRequestViewModel
+import com.example.video.banner.BannerItemAdaper
 
 class ChinaFragment : AbsBaseFragment() {
-    private lateinit var societyRvAdapter: SocietyRvAdapter
+    private lateinit var chinaRvAdapter: Adapter
 
     private val dataViewModel: ChinaDataViewModel
             by lazy {
@@ -58,18 +58,17 @@ class ChinaFragment : AbsBaseFragment() {
         val bind = FragmentChinaBinding.bind(rootView)
 
         //为bannerview设置适配器
-        societyRvAdapter = SocietyRvAdapter(activity as Context)
-        bind.recyclerView.adapter = societyRvAdapter
+        chinaRvAdapter =
+            Adapter(activity as Context)
+        bind.recyclerView.adapter = chinaRvAdapter
         bind.recyclerView.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         //添加分割线
         bind.recyclerView.addItemDecoration(RvDivider())
         //监听数据发生变化，刷新RecyclerView
-        dataViewModel.listData.observe(this, object : Observer<List<ListBean>> {
-            override fun onChanged(t: List<ListBean>?) {
-                if (t != null) {
-                    societyRvAdapter.refreshUI(t)
-                }
+        dataViewModel.listData.observe(this, object : Observer<PagedList<ListBean>>{
+            override fun onChanged(t: PagedList<ListBean>?) {
+                chinaRvAdapter.submitList(t)
             }
         })
         //监听数据变化，刷新BannerView
@@ -129,8 +128,6 @@ class ChinaFragment : AbsBaseFragment() {
     override fun complete() {
 
     }
-
-
 
 
 }

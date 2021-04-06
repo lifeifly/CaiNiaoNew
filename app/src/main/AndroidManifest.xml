@@ -14,7 +14,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.VideoActivity"></activity>
         <activity android:name=".ui.activity.PhotoActivity" />
-        <activity android:name=".ui.activity.ArticleActivity" />
+        <activity android:name=".ui.activity.ArticleActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"/>
         <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

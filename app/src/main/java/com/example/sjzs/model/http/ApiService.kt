@@ -10,12 +10,11 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    //"https://news.cctv.com/2019/07/gaiban/cmsdatainterface/page/world_1.jsonp?cb=world&n=100"
-    @GET("{category}")
+    //"https://news.cctv.com/2019/07/gaiban/cmsdatainterface/page/china_2.jsonp?"
+    @GET("{category}"+"_"+"{t}"+".jsonp?")
     fun getCommonData(
         @Path("category") category: String,
-        @Query("cb") cb: String,
-        @Query("n") n: String
+        @Path("t") t: String
     ): Observable<CommonData>
 
     @GET("{id}" + ".xml")

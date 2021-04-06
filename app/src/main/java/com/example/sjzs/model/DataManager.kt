@@ -17,19 +17,16 @@ class DataManager {
     companion object {
         fun requestCommonData(
             category: String,
-            cb: String,
-            n: String,
+            t: String,
             responseObserver: ResponseObserver<CommonData>
         ) {
             val userHttp =
                 JsonHttp("https://news.cctv.com/2019/07/gaiban/cmsdatainterface/page/", true)
             userHttp.getService(ApiService::class.java)
-                .getCommonData(category, cb, n)
+                .getCommonData(category, t)
                 .compose(userHttp.applySchedulers(object : BaseObserver<CommonData>() {
                     override fun onSuccess(t: CommonData) {
-                        if (t != null) {
-                            responseObserver.onSuccess(t)
-                        }
+                        responseObserver.onSuccess(t)
                     }
 
                     override fun onFailure(e: Throwable) {
@@ -43,7 +40,7 @@ class DataManager {
             responseObserver: ResponseObserver<String>
         ) {
             val baseUrl = "https://news.cctv.com/"
-            val userHttp = JsonHttp("https://news.cctv.com/", false)
+            val userHttp = JsonHttp(baseUrl, false)
             val realId = url.replace("https://news.cctv.com/", "")
                 .replace(".shtml", "")
             userHttp.getNoConvertRetrofit(ApiService::class.java).create(ApiService::class.java)

@@ -33,7 +33,7 @@ data class ArticleBean(
     val source: String,
     val time: String,
     val des: String,
-    val videoUrl: String,
+    val videoData: VideoData?,
     val editor: String,
     val data: Node
 )
@@ -65,7 +65,10 @@ data class CommomBanner(
     val srcHref: String,
     val title: String,
     val text: String
-):BaseObservable()
+) : BaseObservable()
 
-
+/**
+ * 视频id和宽高比封装bean
+ */
+data class VideoData(val id: String, val widthRatio: Int?,val heightRatio: Int?)
 
