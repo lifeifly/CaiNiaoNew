@@ -1,7 +1,16 @@
 package com.example.sjzs.helper
 
+import android.app.Dialog
+import android.content.Context
+import android.net.ConnectivityManager
 import android.text.TextUtils
+import android.util.TypedValue
+import android.view.LayoutInflater
+import android.widget.Button
+import android.widget.ImageView
+import com.example.sjzs.R
 import com.example.sjzs.model.bean.VideoData
+import java.lang.reflect.TypeVariable
 
 object Utils {
 
@@ -29,6 +38,25 @@ object Utils {
         val videoData = VideoData(id, widthRatio, heightRatio)
         return videoData;
     }
+
+    /**
+     * 检测网络是否可用
+     */
+    fun isNetworkConnected(context: Context): Boolean {
+        val mConnectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val mNetworkInfo = mConnectivityManager.getActiveNetworkInfo()
+        if (mNetworkInfo != null && mNetworkInfo.isAvailable) {
+            return true
+        }
+        return false
+    }
+
+
+    fun dp2Px(dp:Float,context: Context):Float{
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,dp,context.resources.displayMetrics)
+    }
+
 
 
 }

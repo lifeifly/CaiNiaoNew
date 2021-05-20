@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 /**
  * 主要做懒加载
  */
-abstract class AbsBaseFragment : Fragment(), IBaseView {
+abstract class AbsBaseFragment : Fragment(), IBaseView{
+
+
     private var mRootView: View? = null//fragment跟布局
 
     private var isViewCreated = false//跟布局是否创建
@@ -87,9 +89,11 @@ abstract class AbsBaseFragment : Fragment(), IBaseView {
         }
     }
 
+
     override fun onDestroyView() {
         super.onDestroyView()
         isViewCreated = false
         currentVisibleState = false
+
     }
 }

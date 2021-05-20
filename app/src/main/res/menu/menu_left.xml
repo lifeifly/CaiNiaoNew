@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    -
+
     <group android:id="@+id/group_1">
 
         <item
-            android:icon="@drawable/ic_apps_white_24dp"
+            android:id="@+id/switch_skin"
+            android:icon="@drawable/switch_skin"
             android:title="@string/app_and_game" />
 
     </group>
@@ -52,12 +53,12 @@
     <!--</group>-->
 
 
-    -
+
     <group android:id="@+id/group_3">
 
         <item
             android:id="@+id/nav_download"
-            android:icon="@drawable/ic_file_download_white_24dp"
+            android:icon="@drawable/ic_collect"
             android:title="@string/download" />
 
         <item

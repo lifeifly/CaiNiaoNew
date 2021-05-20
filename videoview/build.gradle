@@ -32,12 +32,15 @@ android {
 }
 
 dependencies {
+    //图片
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+
     implementation 'io.reactivex.rxjava2:rxjava:2.2.14' // 必要rxjava2依赖
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1' // 必要rxandrroid依赖，切线程时需要用到
     implementation('com.squareup.okhttp3:okhttp:4.9.0')
     implementation project(path: ':ffmpeg')
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.core:core-ktx:1.5.0-alpha05'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0'

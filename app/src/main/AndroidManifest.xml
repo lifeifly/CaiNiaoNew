@@ -3,6 +3,10 @@
     package="com.example.sjzs">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MyApplication"
@@ -12,11 +16,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.VideoActivity"></activity>
+        <activity android:name=".ui.activity.CollectActivity" />
+        <activity android:name=".ui.activity.SearchActivity" />
+        <activity android:name=".ui.activity.MainActivity" />
+        <activity android:name=".ui.activity.SkinActivity" />
         <activity android:name=".ui.activity.PhotoActivity" />
-        <activity android:name=".ui.activity.ArticleActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation"/>
-        <activity android:name=".ui.activity.MainActivity">
+        <activity
+            android:name=".ui.activity.ArticleActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation" />
+        <activity android:name=".ui.activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

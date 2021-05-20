@@ -1,14 +1,15 @@
 package com.example.sjzs.viewmodel
 
-import android.util.Log
-import com.example.sjzs.model.DataManager
-import com.example.sjzs.model.bean.CommonData
+import android.app.Application
+import android.widget.Toast
+import androidx.lifecycle.AndroidViewModel
+import com.example.sjzs.MyApplication
+import com.example.sjzs.helper.Utils
+import com.example.sjzs.model.bean.CommomBanner
 import com.example.sjzs.model.bean.beanmanager.BeanManager
-import com.example.sjzs.model.observer.ResponseObserver
-import com.example.sjzs.ui.activity.ArticleActivity
-import com.example.sjzs.viewmodel.base.BaseRequestVM
+import com.example.sjzs.model.http.hilt.HttpCallback
 
-class ChinaRequestViewModel : BaseRequestVM() {
+class ChinaRequestViewModel(application: Application) : AndroidViewModel(application) {
     private var dataVM: ChinaDataViewModel? = null
 
 
@@ -24,16 +25,26 @@ class ChinaRequestViewModel : BaseRequestVM() {
      * 请求数据
      */
     fun requestData() {
-        DataManager.requestCommonBanner("china", object : ResponseObserver<String>() {
-            override fun onSuccess(t: String) {
-                val banners = BeanManager.getCommonBanners(t)
-                dataVM!!.bannerData.value = banners
-            }
+        if (Utils.isNetworkConnected(getApplication())) {
+            getApplication<MyApplication>().iHttpProcesser.getChinaBanner("china",object : HttpCallback<String>(){
+                override fun onResult(result: String) {
+                    if (dataVM != null) {
+                        val banners = BeanManager.getCommonBanners(result)
+                        dataVM!!.bannerData.value = banners
+                    }
+                }
 
-            override fun onFailure(e: Throwable) {
+                override fun onFailure(message: Throwable) {
+                    Toast.makeText(getApplication(), "广告获取失败", Toast.LENGTH_SHORT).show()
+                }
+            })
 
-            }
-        })
+
+        } else {
+            val failureBanner= mutableListOf(CommomBanner("","","加载失败",""))
+            dataVM?.bannerData?.value=failureBanner
+            Toast.makeText(getApplication(), "当前网络异常,广告刷新失败", Toast.LENGTH_SHORT).show()
+        }
     }
 
 

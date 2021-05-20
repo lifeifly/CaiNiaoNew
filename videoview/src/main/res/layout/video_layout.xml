@@ -37,7 +37,7 @@
             android:src="@mipmap/back_icon" />
 
     </LinearLayout>
-    <com.example.video.ui.BufferView
+    <com.example.video.video.ui.BufferView
         android:id="@+id/buffer_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -48,7 +48,7 @@
         app:layout_constraintTop_toTopOf="@id/texture_View"
         app:layout_constraintWidth_percent="0.2" />
 
-    <com.example.video.ui.ProgressContatiner
+    <com.example.video.video.ui.ProgressContatiner
         android:id="@+id/progress_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -81,9 +81,9 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="15sp" />
-    </com.example.video.ui.ProgressContatiner>
+    </com.example.video.video.ui.ProgressContatiner>
 
-    <com.example.video.ui.ControllerContainer
+    <com.example.video.video.ui.ControllerContainer
         android:id="@+id/controll_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -98,7 +98,7 @@
         app:layout_constraintStart_toStartOf="@+id/texture_View">
 
 
-        <com.example.video.ui.SwitchImageView
+        <com.example.video.video.ui.SwitchImageView
             android:id="@+id/playOrPause"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -139,5 +139,5 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.8"
             android:src="@mipmap/full_screen" />
-    </com.example.video.ui.ControllerContainer>
+    </com.example.video.video.ui.ControllerContainer>
 </androidx.constraintlayout.widget.ConstraintLayout>

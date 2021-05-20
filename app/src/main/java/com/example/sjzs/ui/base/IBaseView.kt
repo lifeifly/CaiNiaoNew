@@ -12,4 +12,7 @@ interface IBaseView {
 
     //刷新数据
     fun complete()
+
+    //请求失败
+    fun showError(text:String)
 }

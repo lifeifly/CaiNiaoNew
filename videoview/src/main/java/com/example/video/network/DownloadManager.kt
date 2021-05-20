@@ -98,9 +98,7 @@ class DownloadManager(baseUrl: String) {
                     }
 
                     override fun onError(e: Throwable) {
-                        if (completeCallback != null) {
                             completeCallback.onError(e as Exception?)
-                        }
                     }
                 })
         } catch (e: Exception) {

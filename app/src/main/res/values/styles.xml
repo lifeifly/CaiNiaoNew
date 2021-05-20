@@ -4,7 +4,6 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="android:windowBackground">@color/def_background</item>
@@ -48,14 +47,53 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="RVTitleText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="GRIDRVTitleText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
     <style name="SourceText">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@android:color/darker_gray</item>
     </style>
+
+    <style name="GRIDSourceText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
 
     <style name="BodyText">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
 
+    <style name="KeywordText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/blue_style</item>
+    </style>
+
+    <style name="GRIDKeywordText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/blue_style</item>
+    </style>
+
+    <declare-styleable name="SkinCardView">
+        <attr name="bgColor" format="color" />
+        <attr name="colorName" format="string" />
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="elevation" format="dimension" />
+    </declare-styleable>
+
+    <style name="ActionSheetDialog" parent="Animation.Design.BottomSheetDialog">
+        <item name="android:windowExitAnimation">@anim/dialog_out_anim</item>
+        <item name="android:windowEnterAnimation">@anim/dialog_in_anim</item>
+    </style>
+
+    
 </resources>

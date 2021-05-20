@@ -12,6 +12,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.sql.Time
+import java.util.concurrent.TimeUnit
 
 abstract class NetworkApi(baseUrl: String) {
     //支持多域名
@@ -20,7 +22,7 @@ abstract class NetworkApi(baseUrl: String) {
     companion object {
         //retrofit复用
         private val mRetrofits = hashMapOf<String, Retrofit>()
-
+        private val mNoConvertRetrofit= hashMapOf<String,Retrofit>()
     }
 
     /**
@@ -32,10 +34,10 @@ abstract class NetworkApi(baseUrl: String) {
 
 
     fun <T> getRetrofit(service: Class<T>): Retrofit {
-        if (mRetrofits.get(mBaseUrl + service.name) != null) {
-            //有缓存
-            return mRetrofits.get(mBaseUrl + service.name)!!
-        }
+//        if (mRetrofits.get(mBaseUrl + service.name) != null) {
+//            //有缓存
+//            return mRetrofits.get(mBaseUrl + service.name)!!
+//        }
 
         //无缓存
         val retrofit = Retrofit.Builder()
@@ -45,15 +47,15 @@ abstract class NetworkApi(baseUrl: String) {
             .baseUrl(mBaseUrl)
             .build()
         //放入缓存
-        mRetrofits.put(mBaseUrl + service.name, retrofit)
+//        mRetrofits.put(mBaseUrl + service.name, retrofit)
 
         return retrofit
     }
 
     fun <T> getNoConvertRetrofit(service: Class<T>): Retrofit {
-        if (mRetrofits.get(mBaseUrl + service.name) != null) {
+        if (mNoConvertRetrofit.get(mBaseUrl + service.name) != null) {
             //有缓存
-            return mRetrofits.get(mBaseUrl + service.name)!!
+            return mNoConvertRetrofit.get(mBaseUrl + service.name)!!
         }
 
         //无缓存
@@ -63,17 +65,16 @@ abstract class NetworkApi(baseUrl: String) {
             .baseUrl(mBaseUrl)
             .build()
         //放入缓存
-        mRetrofits.put(mBaseUrl + service.name, retrofit)
+        mNoConvertRetrofit.put(mBaseUrl + service.name, retrofit)
 
         return retrofit
     }
 
     private fun getOkHttpClient(): OkHttpClient {
         val okHttpClientBuilder = OkHttpClient.Builder()
-
         //添加用户自定义的拦截器
         okHttpClientBuilder.addInterceptor(getInterceptor())
-
+        okHttpClientBuilder.connectTimeout(6000,TimeUnit.MILLISECONDS)
         //打印日志拦截器
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)

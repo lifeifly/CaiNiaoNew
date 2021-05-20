@@ -3,37 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.example.sjzs.ui.scrollview.PagingNestedScrollView
+        android:id="@+id/china_scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/china_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.example.video.banner.BannerView
-                android:padding="5dp"
+            <com.example.banner.BannerView
                 android:id="@+id/banner_view"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:dotGravity="CENTER"
-                app:dotIndicatorDefaultColor="@android:color/white"
-                app:dotIndicatorDistance="10dp"
-                app:dotIndicatorFocusColor="@android:color/holo_blue_bright"
-                app:dotIndicatorSize="10dp"
-                app:layout_constraintDimensionRatio="h,157:88"
+                app:dotGravity="RIGHT"
+                app:defaultColor="@android:color/white"
+                app:indicatorRadius="5dp"
+                app:selectedColor="@android:color/holo_blue_bright"
+                app:dotDistance="5dp"
+                app:layout_constraintDimensionRatio="16:9"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.recyclerview.widget.RecyclerView
+
+            <com.example.sjzs.ui.recyclerview.RefreshLoadMoreRecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/banner_view" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.example.sjzs.ui.scrollview.PagingNestedScrollView>
 </layout>

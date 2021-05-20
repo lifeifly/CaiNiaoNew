@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.SkinActivity">
+
+        <View
+            android:id="@+id/statusBarView"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:background="@color/blue1_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/blue1_style"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statusBarView"
+            />
+
+        <com.example.sjzs.ui.scrollview.SkinCardView
+            android:id="@+id/skin_item1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="20dp"
+            android:padding="4dp"
+            app:bgColor="@color/blue1_style"
+            app:colorName="@string/blue1_skin"
+            app:cornerRadius="10dp"
+            app:elevation="10dp"
+            app:layout_constraintBottom_toTopOf="@id/skin_item4"
+            app:layout_constraintEnd_toStartOf="@id/skin_item2"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tool_bar"
+            app:layout_constraintVertical_weight="1"
+            />
+
+        <com.example.sjzs.ui.scrollview.SkinCardView
+            android:id="@+id/skin_item2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="20dp"
+            android:padding="4dp"
+            app:bgColor="@color/green_style"
+            app:colorName="@string/green_skin"
+            app:cornerRadius="10dp"
+            app:elevation="10dp"
+            app:layout_constraintBottom_toTopOf="@id/skin_item5"
+            app:layout_constraintEnd_toStartOf="@id/skin_item3"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/skin_item1"
+            app:layout_constraintTop_toBottomOf="@id/tool_bar"
+            app:layout_constraintVertical_weight="1" />
+
+        <com.example.sjzs.ui.scrollview.SkinCardView
+            android:id="@+id/skin_item3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="20dp"
+            android:padding="4dp"
+            app:bgColor="@color/blue_style"
+            app:colorName="@string/blue_skin"
+            app:cornerRadius="10dp"
+            app:elevation="10dp"
+            app:layout_constraintBottom_toTopOf="@id/skin_item6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/skin_item2"
+            app:layout_constraintTop_toBottomOf="@id/tool_bar"
+            app:layout_constraintVertical_weight="1" />
+
+        <com.example.sjzs.ui.scrollview.SkinCardView
+            android:id="@+id/skin_item4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="20dp"
+            android:padding="4dp"
+            app:bgColor="@color/purple_style"
+            app:colorName="@string/purple_skin"
+            app:cornerRadius="10dp"
+            app:elevation="10dp"
+            app:layout_constraintBottom_toTopOf="@id/skin_item7"
+            app:layout_constraintEnd_toStartOf="@id/skin_item5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/skin_item1"
+            app:layout_constraintVertical_weight="1" />
+
+        <com.example.sjzs.ui.scrollview.SkinCardView
+            android:id="@+id/skin_item5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="20dp"
+            android:padding="4dp"
+            app:bgColor="@color/orange_style"
+            app:colorName="@string/orange_skin"
+            app:cornerRadius="10dp"
+            app:elevation="10dp"
+            app:layout_constraintBottom_toTopOf="@id/skin_item8"
+            app:layout_constraintEnd_toStartOf="@id/skin_item6"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/skin_item4"
+            app:layout_constraintTop_toBottomOf="@id/skin_item2"
+            app:layout_constraintVertical_weight="1" />
+
+        <com.example.sjzs.ui.scrollview.SkinCardView
+            android:id="@+id/skin_item6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="20dp"
+            android:padding="4dp"
+            app:bgColor="@color/pink_style"
+            app:colorName="@string/pink_skin"
+
+            app:cornerRadius="10dp"
+            app:elevation="10dp"
+            app:layout_constraintBottom_toTopOf="@id/skin_item9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/skin_item5"
+            app:layout_constraintTop_toBottomOf="@id/skin_item3"
+            app:layout_constraintVertical_weight="1" />
+
+        <com.example.sjzs.ui.scrollview.SkinCardView
+            android:id="@+id/skin_item7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="20dp"
+            android:padding="4dp"
+            app:bgColor="@color/red_style"
+            app:colorName="@string/red_skin"
+            app:cornerRadius="10dp"
+            app:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/skin_item8"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/skin_item4"
+            app:layout_constraintVertical_weight="1" />
+
+        <com.example.sjzs.ui.scrollview.SkinCardView
+            android:id="@+id/skin_item8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="20dp"
+            android:padding="4dp"
+            app:bgColor="@color/black_style"
+            app:colorName="@string/black_skin"
+            app:cornerRadius="10dp"
+            app:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/skin_item9"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/skin_item7"
+            app:layout_constraintTop_toBottomOf="@id/skin_item5"
+            app:layout_constraintVertical_weight="1" />
+
+        <com.example.sjzs.ui.scrollview.SkinCardView
+            android:id="@+id/skin_item9"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="20dp"
+            android:padding="4dp"
+            app:bgColor="@color/yellow_style"
+            app:colorName="@string/yellow_skin"
+            app:cornerRadius="10dp"
+            app:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/skin_item8"
+            app:layout_constraintTop_toBottomOf="@id/skin_item6"
+            app:layout_constraintVertical_weight="1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

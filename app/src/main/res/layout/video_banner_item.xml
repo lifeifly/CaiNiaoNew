@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="itemClick"
+            type="com.example.sjzs.ui.click.IItemClick" />
+
+        <variable
+            name="bannervideolist"
+            type="com.example.sjzs.model.bean.VideoList" />
+    </data>
+
+    <com.example.banner.AnimationConstriantLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="@{(view)->itemClick.onClick(view,bannervideolist)}">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:imageUrl="@{bannervideolist.image}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal"
+                android:text="@{bannervideolist.title}"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/imageView"
+                app:layout_constraintEnd_toEndOf="@id/imageView"
+                app:layout_constraintStart_toStartOf="@id/imageView"
+                />
+
+
+    </com.example.banner.AnimationConstriantLayout>
+</layout>

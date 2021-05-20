@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="listener1"
+            type="com.bumptech.glide.request.RequestListener" />
+        <variable
+            name="itemClick"
+            type="com.example.sjzs.ui.click.IItemClick" />
+
+        <variable
+            name="comonbanner"
+            type="com.example.sjzs.model.bean.CommomBanner" />
+    </data>
+
+    <com.example.banner.AnimationConstriantLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="@{(view)->itemClick.onClick(view,comonbanner)}">
+
+
+        <io.supercharge.shimmerlayout.ShimmerLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/shimmer_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                app:listener="@{listener1}"
+                app:imageUrl='@{"https:"+comonbanner.srcHref}'
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </io.supercharge.shimmerlayout.ShimmerLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:gravity="center_horizontal"
+            android:text="@{comonbanner.title}"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </com.example.banner.AnimationConstriantLayout>
+</layout>

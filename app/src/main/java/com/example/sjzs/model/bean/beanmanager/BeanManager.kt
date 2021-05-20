@@ -4,6 +4,8 @@ import android.text.TextUtils
 import android.util.Log
 import com.example.sjzs.helper.Utils
 import com.example.sjzs.model.bean.*
+import com.example.video.imageswitcher.PhotoBean
+import com.example.video.imageswitcher.PhotoListBean
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
@@ -84,7 +86,59 @@ class BeanManager {
          */
         fun getCommonBanners(html: String): List<CommomBanner> {
             val bannerBeanList: MutableList<CommomBanner> =
-                ArrayList<CommomBanner>()
+                ArrayList()
+            if (!TextUtils.isEmpty(html)){
+                val document = Jsoup.parse(
+                    html.replace("&amp;", "&")
+                        .replace("&lt;", "<")
+                        .replace("&gt;", ">")
+                        .replace("&ldquo;", "\"")
+                        .replace("&rdquo;", "\"")
+                        .replace("&lsquo;", "'")
+                        .replace("&rsquo;", "'")
+                        .replace("&hellip;", "...")
+                        .replace("&mdash;", "-")
+                        .replace("<br>", "\n")
+                        .replace("<br/>", "")
+                        .replace("<br></br>", "\n")
+                )
+
+                val select = document.select("div.list_con").first()
+                val selects = select.select("div.silde")
+
+                for (element in selects) {
+                    var srcHref = ""
+                    //图片信息和连接信息
+                    val image = element.select("div.image").first()
+                    val a = image.select("a").first()
+                    val href = a.attr("abs:href")
+                    val img = a.select("img.lazy").first()
+                    //图片有两种Tag需要分辨
+                    srcHref = if (img.attr("data-echo") != null && img.attr("data-echo").length > 0) {
+                        img.attr("data-echo")
+                    } else {
+                        img.attr("data-src")
+                    }
+                    Log.d(1.toString(), srcHref)
+                    //标题和文本信息
+                    val right_text = element.select("div.right_text").first()
+                    val h3 =
+                        right_text.select("h3").first().select("a").first()
+                    val title = h3.text()
+                    val p = right_text.select("p").first().select("a").first()
+                    val text = p.text()
+                    bannerBeanList.add(CommomBanner(href, srcHref, title, text))
+                }
+            }
+
+
+            return bannerBeanList
+        }
+        /**
+         * 获取图片内容
+         */
+        fun getPhotoBean(html: String):PhotoBean{
+            val photoArticleBean: PhotoBean?
             val document = Jsoup.parse(
                 html.replace("&amp;", "&")
                     .replace("&lt;", "<")
@@ -96,38 +150,46 @@ class BeanManager {
                     .replace("&hellip;", "...")
                     .replace("&mdash;", "-")
                     .replace("<br>", "\n")
-                    .replace("<br/>", "")
+                    .replace("</br>", "")
                     .replace("<br></br>", "\n")
             )
+            val ul = document.select("ul").first()
+            val title = ul.attr("title")
+            val id = ul.attr("id")
+            val nextId = ul.attr("nextid")
+            val prevId = ul.attr("previd")
 
-            val select = document.select("div.list_con").first()
-            val selects = select.select("div.silde")
+            val listBeans: MutableList<PhotoListBean> = mutableListOf()
 
-            for (element in selects) {
-                var srcHref = ""
-                //图片信息和连接信息
-                val image = element.select("div.image").first()
-                val a = image.select("a").first()
-                val href = a.attr("abs:href")
-                val img = a.select("img.lazy").first()
-                //图片有两种Tag需要分辨
-                srcHref = if (img.attr("data-echo") != null && img.attr("data-echo").length > 0) {
-                    img.attr("data-echo")
-                } else {
-                    img.attr("data-src")
-                }
-                Log.d(1.toString(), srcHref)
-                //标题和文本信息
-                val right_text = element.select("div.right_text").first()
-                val h3 =
-                    right_text.select("h3").first().select("a").first()
-                val title = h3.text()
-                val p = right_text.select("p").first().select("a").first()
-                val text = p.text()
-                bannerBeanList.add(CommomBanner(href, srcHref, title, text))
+            val lis = ul.select("li")
+            for (li in lis) {
+                val photoUrl = li.attr("photourl")
+                val newBigUrl = li.attr("newbigurl")
+                val bigUrl = li.attr("bigurl")
+                val smallUrl = li.attr("smallurl")
+                val listUrl = li.attr("listurl")
+                val listTitle = li.attr("title")
+                val listId = li.attr("id")
+                val time = li.attr("time")
+                val data = li.text()
+                listBeans.add(
+                    PhotoListBean(
+                        photoUrl,
+                        newBigUrl,
+                        bigUrl,
+                        smallUrl,
+                        listUrl,
+                        listTitle,
+                        time,
+                        listId,
+                        data
+                    )
+                )
             }
-
-            return bannerBeanList
+            photoArticleBean = PhotoBean(title, id, nextId, prevId, listBeans)
+            return photoArticleBean
         }
+
     }
+
 }

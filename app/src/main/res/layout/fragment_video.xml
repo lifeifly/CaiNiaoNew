@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/search_tv"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/search_bg"
+                android:drawableStart="@mipmap/search_mip"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:drawablePadding="10dp"
+                android:text="搜索"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_scrollFlags="enterAlways|scroll|snap" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.example.sjzs.ui.scrollview.PagingNestedScrollView
+            android:id="@+id/china_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/china_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.example.banner.BannerView
+                    android:id="@+id/banner_view"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:defaultColor="@android:color/white"
+                    app:dotDistance="3dp"
+                    app:dotGravity="RIGHT"
+                    app:indicatorRadius="5dp"
+                    app:layout_constraintDimensionRatio="h,16:9"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:selectedColor="@android:color/holo_blue_bright" />
+
+
+                <com.example.sjzs.ui.recyclerview.RefreshLoadMoreRecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/banner_view" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.example.sjzs.ui.scrollview.PagingNestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

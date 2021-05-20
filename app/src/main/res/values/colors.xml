@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#0f9d58</color>
-    <color name="colorPrimaryDark">#0d894d</color>
-    <color name="colorAccent">#0f9d58</color>
+    <color name="colorPrimary">#10ADFF</color>
+    <color name="colorPrimaryDark">#10ADFF</color>
+    <color name="colorAccent">#10ADFF</color>
 
     <color name="def_background">#f1f1f1</color>
     <color name="def_background_black">#333</color>
@@ -10,5 +10,19 @@
     <color name="green_dialog">@android:color/white</color>
     <color name="white">@android:color/white</color>
     <color name="def_text_black">#333</color>
-
+    <color name="blue1_style">#FF10ADFF</color>
+    <color name="green_style">#FF03DAC5</color>
+    <color name="orange_style">#FFFF9800</color>
+    <color name="pink_style">#FD9A9A</color>
+    <color name="purple_style">#9C27B0</color>
+    <color name="yellow_style">#FFEB3B</color>
+    <color name="blue_style">#3B51A3</color>
+    <color name="black_style">#60D16B</color>
+    <color name="red_style">#F41414</color>
+    <color name="def_textcolor">#8a8a8a</color>
+    <color name="transparent_gray_color">#99221F1F</color>
+    <color name="indicator_start">#EE03A9F4</color>
+    <color name="indicator_center1">#BB03C4F4</color>
+    <color name="indicator_center2">#BB9C27B0</color>
+    <color name="indicator_end">#BBB02757</color>
 </resources>

@@ -8,24 +8,44 @@
     </declare-styleable>
 
     <declare-styleable name="BannerView">
-        <!--点的选中和默认的颜色值-->
-        <attr name="dotIndicatorFocusColor" format="color|reference" />
-        <attr name="dotIndicatorDefaultColor" format="color|reference" />
-        <!--点的大小-->
-        <attr name="dotIndicatorSize" format="dimension" />
-        <!--点的位置和距离-->
-        <attr name="dotIndicatorDistance" format="dimension" />
-
+        <attr name="indicatorRadius" format="dimension" />
+        <attr name="selectedColor" format="color" />
+        <attr name="defaultColor" format="color" />
         <attr name="dotGravity" format="enum">
             <enum name="CENTER" value="0" />
-            <enum name="RIGHT" value="1" />
-            <enum name="LEFT" value="-1" />
+            <enum name="LEFT" value="1" />
+            <enum name="RIGHT" value="2" />
         </attr>
-        <!--底部的颜色-->
         <attr name="bottomColor" format="color" />
-        <!--宽高比-->
-        <attr name="widthProperties" format="float"/>
-        <attr name="heightProperties" format="float"/>
+        <attr name="dotDistance" format="dimension" />
     </declare-styleable>
 
+
+    <declare-styleable name="CountView">
+        <!--数字的个数-->
+        <attr name="cv_count" format="integer" />
+        <!--数字颜色-->
+        <attr name="cv_text_color" format="color" />
+        <!--数字的尺寸-->
+        <attr name="cv_text_size" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ThumbView">
+        <!--是否已点赞-->
+        <attr name="tv_isThumbUp" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ThumbContainer">
+        <!--数字的个数-->
+        <attr name="tc_count" format="integer" />
+        <!--数字颜色-->
+        <attr name="tc_text_color" format="color" />
+        <!--数字的尺寸-->
+        <attr name="tc_text_size" format="dimension" />
+        <!--图片的padding-->
+        <attr name="tc_drawable_padding" format="dimension" />
+        <!--是否处于点赞状态-->
+        <attr name="tc_isThumbUp" format="boolean" />
+
+    </declare-styleable>
 </resources>

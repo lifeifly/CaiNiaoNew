@@ -2,4 +2,19 @@
 <resources>
     <string name="help_response">帮助和反馈</string>
     <string name="about_text">关于</string>
+    <string name="load_error">数据加载失败，点击重试</string>
+    <string name="load_success">数据加载成功</string>
+    <string name="load_no_more">没有更多数据了</string>
+    <string name="mutilple">首页</string>
+    <string name="picture">图片</string>
+    <string name="video">视频</string>
+    <string name="green_skin">浅葱绿</string>
+    <string name="blue_skin">经典蓝</string>
+    <string name="pink_skin">桃桃粉</string>
+    <string name="purple_skin">星辰紫</string>
+    <string name="red_skin">元气红</string>
+    <string name="black_skin">绿草青</string>
+    <string name="orange_skin">热情橙</string>
+    <string name="yellow_skin">盛夏黄</string>
+    <string name="blue1_skin">天空蓝</string>
 </resources>

@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">菜鸟市场</string>
-    <string name="leak_canary_display_activity_label">菜鸟市场</string>
+    <string name="app_name">菜鸟新闻</string>
+    <string name="leak_canary_display_activity_label">菜鸟新闻</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="click_login">点击登录</string>
-    <string name="app_and_game">应用和游戏</string>
+    <string name="app_and_game">切换皮肤</string>
     <string name="movie">影视</string>
     <string name="music">音乐</string>
     <string name="book">图书</string>
@@ -17,7 +17,7 @@
     <string name="recommend">推荐</string>
     <string name="rank">排行</string>
     <string name="category">分类</string>
-    <string name="download">下载</string>
+    <string name="download">收藏</string>
     <string name="network_connect_fail">网络连接失败</string>
     <string name="retry">重试</string>
     <string name="no_more_data">暂无更多数据</string>
@@ -47,5 +47,10 @@
     <string name="install">安装</string>
     <string name="help_response">帮助和反馈</string>
     <string name="about_text">关于</string>
-
+    <string name="load_error">数据加载失败，点击重试</string>
+    <string name="load_success">数据加载成功</string>
+    <string name="load_no_more">没有更多数据了</string>
+    <string name="mutilple">首页</string>
+    <string name="picture">图片</string>
+    <string name="video">视频</string>
 </resources>

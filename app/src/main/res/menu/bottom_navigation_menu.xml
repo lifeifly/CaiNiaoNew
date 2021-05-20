@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fragment_home"
+        android:icon="@drawable/hunhe_normal"
+        android:title="@string/mutilple" />
+    <item
+        android:id="@+id/fragment_video"
+        android:icon="@drawable/shipin_normal"
+        android:title="@string/video" />
+    <item
+        android:id="@+id/fragment_picture"
+        android:icon="@drawable/tupian_normal"
+        android:title="@string/picture" />
+</menu>
